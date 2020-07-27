@@ -1,14 +1,14 @@
 console.log("ASCEE-Wheel imported!")
 let slotIndex = 0;
 let isSpinning = false;
+const reItem = /(.*) - (PRO|CON)/
 const _options = [
-    "GARUDA",
-    "MERDEKA",
-    "ERANGEL",
-    "SOMETHING",
-    "SOMEGROUP",
-    "SOMEONE",
+    "A",
+    "B",
+    "C",
+    "D",
 ]
+
 let _wheel = initWheel(_options);
 
 
@@ -20,14 +20,27 @@ function resetWheel(){
     setResult("-", 2)
 }
 
-function genWheel(items, colors){
+function genWheel(items, colors, procon=0){
     let counter = 0;
-    const segments = items.map(function(item) {
-        const result = {
-            fillStyle: colors[counter % colors.length],
-            text: item + ""
-        };
-        counter += 1;
+    const segments = items.flatMap(function(item) {
+        const result = [];
+        const createSegment = function(text) {
+            const x = {
+                fillStyle: colors[counter % colors.length],
+                text: `${item} - ${text}`
+            }
+            counter += 1;
+            return x;
+        }
+
+        if(procon >= 0){
+            result.push(createSegment("PRO"));
+        }
+
+        if (procon <= 0){
+            result.push(createSegment("CON"));
+        }
+
         return result;
     })
 
@@ -35,7 +48,7 @@ function genWheel(items, colors){
 
     let wheel = new Winwheel({
         canvasId: 'canvas-wheel',
-        numSegments: items.length,
+        numSegments: procon == 0 ? items.length * 2 : items.length,
         fillStyle: '#00FFFF',
         outerRadius: 200,
         linewidth: 3,
@@ -70,10 +83,9 @@ function startSpin(){
 }
 
 function initWheel(options){
-    const colors = ["#FF0000", "#00FF00", "#0000FF"];
-    // const options = [1, 2, 3, 4, 5, 6]
+    const colors = ["#FF0000", "#00FF00", "#0000FF", "#22FFEE", "#EE22FF", "#FF22EE", "#AA99EE", "#2255CC"];
     return {
-        wheel: genWheel(options, colors),
+        wheel: genWheel(options, colors, 0),
         colors,
         options
     }
@@ -86,12 +98,22 @@ function spinCallback(chosen){
     _wheel.wheel.draw();
     slotIndex += 1;
     isSpinning = false;
-    removeItemfromWheel(chosen.text)
+    setTimeout(() => {
+        removeItemfromWheel(chosen.text)
+
+        const match = chosen.text.match(reItem);
+        const isPro = match[2].trim() == "PRO" ? "CON" : "PRO";
+        if(_wheel.options.length == 1){
+            setResult(_wheel.options[0] + " - " + isPro, 2)
+        }
+    }, 500);
 }
 
 function removeItemfromWheel(item){
-    _wheel.options = _wheel.options.filter(i => i != item);
-    _wheel.wheel = genWheel(_wheel.options, _wheel.colors)
+    const match = item.match(reItem);
+    const isPro = match[2].trim() == "PRO" ? -1 : 1;
+    _wheel.options = _wheel.options.filter(i => i != match[1].trim());
+    _wheel.wheel = genWheel(_wheel.options, _wheel.colors, slotIndex % 2 == 0? 0 : isPro)
 }
 
 function setResult(text, index){

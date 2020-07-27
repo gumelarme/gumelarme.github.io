@@ -3,21 +3,30 @@
     <head>
         <meta charset="UTF-8"/>
         <title>Document</title>
-        <script src="Winwheel.js"></script>
+        <script src="./js/Winwheel.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-        <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen" />
     </head>
     <body>
-        <h1>Wheel</h1>
-        <canvas id="canvas-wheel" width="300" height="400">
-        </canvas>
-        <button onclick="startSpin()">SPIN</button>
-        <button onclick="initWheel()">RESET</button>
-        <div id="result-box">
-            <div id="slot1"> </div>
-            <div> VS </div>
-            <div id="slot2"> </div>
+        <div id="wrapper">
+            <canvas id="canvas-wheel" width="400" height="400">
+            </canvas>
         </div>
-        <script type="text/javascript" src="index.js"></script>
+        <button onclick="startSpin()">SPIN</button>
+        <button onclick="resetWheel()">RESET</button>
+        <div id="result-box">
+            <div id="slot1" class="result-slot">
+                <div>
+                    WIN
+                </div>
+            </div>
+            <div id="vs"> VS </div>
+            <div id="slot2" class="result-slot">
+                <div>
+                    WIN
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="./js/index.js"></script>
     </body>
 </html>

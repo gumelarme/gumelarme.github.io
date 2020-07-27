@@ -1,7 +1,24 @@
 console.log("ASCEE-Wheel imported!")
 let slotIndex = 0;
 let isSpinning = false;
-let _wheel = initWheel();
+const _options = [
+    "GARUDA",
+    "MERDEKA",
+    "ERANGEL",
+    "SOMETHING",
+    "SOMEGROUP",
+    "SOMEONE",
+]
+let _wheel = initWheel(_options);
+
+
+function resetWheel(){
+    _wheel = initWheel(_options);
+    slotIndex = 0;
+    isSpinning = false;
+    setResult("-", 1)
+    setResult("-", 2)
+}
 
 function genWheel(items, colors){
     let counter = 0;
@@ -20,6 +37,7 @@ function genWheel(items, colors){
         canvasId: 'canvas-wheel',
         numSegments: items.length,
         fillStyle: '#00FFFF',
+        outerRadius: 200,
         linewidth: 3,
         animation: {
             type: 'spinToStop',
@@ -38,14 +56,12 @@ function genWheel(items, colors){
     return wheel;
 }
 
-
 function startSpin(){
-    // if (slotIndex > 2){
-    //     _wheel = initWheel();
-    //     slotIndex = 0;
-    // }
+    if(slotIndex % 2 == 0){
+        setResult("-", 1)
+        setResult("-", 2)
+    }
 
-    console.log('Clicked!')
     if(!isSpinning){
         _wheel.wheel.rotationAngle = 0;
         _wheel.wheel.startAnimation();
@@ -53,9 +69,9 @@ function startSpin(){
     }
 }
 
-function initWheel(){
+function initWheel(options){
     const colors = ["#FF0000", "#00FF00", "#0000FF"];
-    const options = [1, 2, 3, 4, 5, 6]
+    // const options = [1, 2, 3, 4, 5, 6]
     return {
         wheel: genWheel(options, colors),
         colors,
@@ -64,7 +80,8 @@ function initWheel(){
 }
 
 function spinCallback(chosen){
-    setResult(chosen.text);
+    const index = (slotIndex % 2) + 1;
+    setResult(chosen.text, index);
     _wheel.wheel.stopAnimation(false);
     _wheel.wheel.draw();
     slotIndex += 1;
@@ -74,13 +91,11 @@ function spinCallback(chosen){
 
 function removeItemfromWheel(item){
     _wheel.options = _wheel.options.filter(i => i != item);
-    // console.log(nOption, item)
     _wheel.wheel = genWheel(_wheel.options, _wheel.colors)
 }
 
-
-function setResult(text){
-    const index = (slotIndex % 2) + 1;
-    let el = document.getElementById("slot"+index);
+function setResult(text, index){
+    const query = `#slot${index}>div`;
+    let el = document.querySelector(query);
     el.innerHTML = text;
 }

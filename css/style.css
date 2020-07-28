@@ -1,3 +1,7 @@
+*{
+    font-family: sans-serif;
+}
+
 h1{
     color: green;
 }
@@ -5,38 +9,50 @@ h1{
 #wrapper{
     width: 100%;
     text-align: center;
+    margin: 30px 0;
 }
 
 canvas{
     display:inline;
     height: 40%;
 }
+
 button{
-    padding: 20px;
+    padding: 20px 30px;
+}
+
+#button-wrapper{
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
 }
 
 #result-box > div{
     box-sizing: border-box;
     float: left;
-    padding: 40px;
-    font-size: 2em;
+    padding: 20px;
 }
 
-#vs {
-    width: 10%;
-    text-align: center;
-}
 
 .result-slot {
     width: 45%;
+    font-size: 2em;
 }
 
 #slot1{
     text-align: right;
     background: red;
+    color: white;
 }
 
 #slot2{
     text-align: left;
     background: blue;
+    color: white;
+}
+
+#vs {
+    width: 10%;
+    text-align: center;
+    font-size: 2em;
 }

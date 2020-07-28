@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <style type="text/css" media="screen">
+         *{
+             font-family:sans-serif;
+         }
+
+         h2, h3{
+             margin: 0;
+             text-align:center;
+         }
+
+         h2{
+             margin: 30px;
+         }
+
+         .hidden{
+             visibility: hidden;
+         }
+
+         #score-wrapper{
+             text-align: center;
+             /* border: 1px solid red; */
+         }
+
+         .score-board{
+             /* float: left; */
+             display: inline-block;
+             /* border: 1px solid red; */
+             width: 200px;
+             background: wheat;
+             padding: 30px 0;
+             text-align:center;
+             margin: 10px;
+         }
+
+
+         button{
+             padding: 5px 40px;
+             font-weight: bold;
+             font-size: 1.5em;
+         }
+
+         .score-count{
+             font-size: 2em;
+             font-weight: bold;
+             padding: 10px;
+         }
+         input{
+             font-size: 18px;
+             padding: 20px;
+             text-align: center;
+             margin: 5px;
+         }
+
+         #add-input{
+             background: lightgreen;
+         }
+
+         #sub-input{
+             background: red;
+         }
+
+         #input-wrapper{
+             text-align:center;
+         }
+        </style>
+    </head>
+    <body>
+        <h2>SCORE</h2>
+        <div id="score-wrapper">
+        </div>
+        <br />
+        <div id="input-wrapper">
+            <input id="add-input" type="number" value="100"/>
+            <input id="sub-input" type="number" value="50"/>
+            <br />
+            <br />
+            <button onclick="resetScore()">Reset</button>
+        </div>
+        <div class="score-board hidden">
+            <h3></h3>
+            <button class="sub-btn">-</button>
+            <div class="score-count">
+                0
+            </div>
+            <button class="add-btn">+</button>
+        </div>
+        <script type="text/javascript" src="./js/score.js"></script>
+    </body>
+</html>

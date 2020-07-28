@@ -3,10 +3,10 @@ let slotIndex = 0;
 let isSpinning = false;
 const reItem = /(.*) - (PRO|CON)/
 const _options = [
-    "A",
-    "B",
-    "C",
-    "D",
+    "GARUDA",
+    "MERDEKA",
+    "GROUP 1",
+    "GROUP 2",
 ]
 
 let _wheel = initWheel(_options);
@@ -50,13 +50,14 @@ function genWheel(items, colors, procon=0){
         canvasId: 'canvas-wheel',
         numSegments: procon == 0 ? items.length * 2 : items.length,
         fillStyle: '#00FFFF',
-        outerRadius: 200,
+        outerRadius: 300,
         linewidth: 3,
         animation: {
             type: 'spinToStop',
             duration: 2,
             spins: 10,
             callbackFinished: spinCallback,
+            // callbackAfter: drawTriangle,
         },
         pointerAngle: 90,
         pointerGuide: {
@@ -98,6 +99,8 @@ function spinCallback(chosen){
     _wheel.wheel.draw();
     slotIndex += 1;
     isSpinning = false;
+
+    // wait before removing to make it more smooth even without animation
     setTimeout(() => {
         removeItemfromWheel(chosen.text)
 
@@ -113,7 +116,8 @@ function removeItemfromWheel(item){
     const match = item.match(reItem);
     const isPro = match[2].trim() == "PRO" ? -1 : 1;
     _wheel.options = _wheel.options.filter(i => i != match[1].trim());
-    _wheel.wheel = genWheel(_wheel.options, _wheel.colors, slotIndex % 2 == 0? 0 : isPro)
+    _wheel.wheel = genWheel(_wheel.options, _wheel.colors,
+                            slotIndex % 2 == 0 ? 0 : isPro) //if its the second roll remove the opposite
 }
 
 function setResult(text, index){
@@ -121,3 +125,18 @@ function setResult(text, index){
     let el = document.querySelector(query);
     el.innerHTML = text;
 }
+
+function drawTriangle() {
+    // Get the canvas context the wheel uses.
+    let ctx = _wheel.wheel.ctx;
+
+    ctx.strokeStyle = 'navy';     // Set line colour.
+    ctx.fillStyle   = 'aqua';     // Set fill colour.
+    ctx.lineWidth   = 2;
+    ctx.beginPath();              // Begin path.
+    ctx.moveTo(400, 174);      // Move to initial position.
+    ctx.lineTo(400, 226);      // Draw lines to make the shape.
+    ctx.lineTo(360, 200);
+    ctx.lineTo(400, 175);
+    ctx.stroke();              // Complete the path by stroking (draw lines).
+    ctx.fill();}

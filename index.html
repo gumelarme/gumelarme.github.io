@@ -9,21 +9,23 @@
     </head>
     <body>
         <div id="wrapper">
-            <canvas id="canvas-wheel" width="400" height="400">
+            <canvas id="canvas-wheel" width="600" height="600">
             </canvas>
+            <div id="button-wrapper">
+                <button onclick="startSpin()">SPIN</button>
+                <button onclick="resetWheel()">RESET</button>
+            </div>
         </div>
-        <button onclick="startSpin()">SPIN</button>
-        <button onclick="resetWheel()">RESET</button>
         <div id="result-box">
             <div id="slot1" class="result-slot">
                 <div>
-                    WIN
+                    -
                 </div>
             </div>
             <div id="vs"> VS </div>
             <div id="slot2" class="result-slot">
                 <div>
-                    WIN
+                    -
                 </div>
             </div>
         </div>

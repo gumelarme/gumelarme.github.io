@@ -1,0 +1,94 @@
+*{
+    font-family:sans-serif;
+}
+
+h1{
+
+    text-align:center;
+}
+
+.score-name{
+    margin: 10px 0;
+}
+
+.score-name span{
+    font-size: 16pt;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.hidden{
+    visibility: hidden;
+    display: none;
+}
+
+#score-wrapper{
+    justify-content: center;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.score-board{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    min-width: 200px;
+    max-width: 350px;
+    background: wheat;
+    padding: 30px 10px;
+    text-align:center;
+    margin: 10px;
+}
+
+.score-board > div{
+    /* border: 1px solid red; */
+}
+
+button{
+    padding: 5px 40px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.score-count{
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.score-count > *{
+    font-size: 30pt;
+}
+
+.score-count>input{
+    padding: 10px 0;
+    text-align: center;
+    max-width: 200px;
+}
+
+/* removing arrow in number input */
+.score-count > input[type=number]::-webkit-inner-spin-button,
+.score-count > input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#input-wrapper>input{
+    font-size: 18px;
+    padding: 20px;
+    text-align: center;
+    margin: 5px;
+}
+
+#add-input{
+    background: lightgreen;
+}
+
+#sub-input{
+    background: red;
+}
+
+#input-wrapper{
+    text-align:center;
+}

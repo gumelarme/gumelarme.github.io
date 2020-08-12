@@ -2,12 +2,12 @@ console.log("ASCEE-Wheel imported!")
 let slotIndex = 0;
 let isSpinning = false;
 const reItem = /(.*) - (PRO|CON)/
-const _options = [
-    "GARUDA",
-    "MERDEKA",
-    "GROUP 1",
-    "GROUP 2",
-]
+// const _options = [
+//     "GARUDA",
+//     "MERDEKA",
+//     "GROUP 1",
+//     "GROUP 2",
+// ]
 
 let _wheel = initWheel(_options);
 
@@ -84,7 +84,15 @@ function startSpin(){
 }
 
 function initWheel(options){
-    const colors = ["#FF0000", "#00FF00", "#0000FF", "#22FFEE", "#EE22FF", "#FF22EE", "#AA99EE", "#2255CC"];
+    const colors = [
+        "#EC1B23",
+        "#8AC900",
+        "#FFFF00",
+        "#00A2C3",
+        // "#FF6500",
+        // "#C6007B",
+        // "#F9B79D",
+    ];
     return {
         wheel: genWheel(options, colors, 0),
         colors,

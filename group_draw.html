@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/jquery.slotmachine.min.css" type="text/css" media="screen" />
+        <script src="./js/slotmachine.min.js" type="text/javascript"> </script>
+        <style type="text/css" media="screen">
+         body, h1{
+             margin: 0;
+         }
+         #header{
+             font-family: sans-serif;
+             text-align: center;
+             background: #48A8DE;
+             padding: 20px;
+             color: white;
+         }
+
+         #footer{
+             display: flex;
+             justify-content: center;
+             align-items: center;
+         }
+
+         #footer img{
+             width: 140px;
+             margin: 10px 10px;
+         }
+
+         #wrapper{
+             justify-content: center;
+             align-items:center;
+             display: flex;
+             flex-wrap: wrap;
+         }
+         .slot{
+             height: 38px;
+             overflow: hiden;
+             font-size: 30px;
+             text-align: center;
+         }
+         .slot-container {
+             flex:auto;
+             margin: 0;
+             font-family: sans-serif;
+             padding: 10px 0 30px 0;
+             margin: 10px 10px;
+             width: 45%;
+             /* float: left; */
+         }
+         .slot-container h1{
+             padding: 5px 10px;
+         }
+         #machine1{
+             background: wheat;
+         }
+
+         #machine2{
+             background: tomato;
+         }
+
+         #machine3{
+             background: lightblue;
+         }
+
+         #machine4{
+             background: seagreen;
+         }
+
+         #control{
+             /* background: red; */
+             padding: 5px;
+             text-align:center;
+         }
+
+         button{
+             padding: 20px 40px;
+             font-size: 20px;
+         }
+
+        </style>
+
+    </head>
+    <body>
+        <div id="header">
+            <h1>
+                ASCEE Lomba Cerdas Cermat
+            </h1>
+        </div>
+        <div id="wrapper">
+            <div id="machine1" class="slot-container">
+                <h1>Group A</h1>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+            </div>
+
+            <div id="machine2" class="slot-container">
+                <h1>Group B</h1>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+            </div>
+            <div id="machine3" class="slot-container">
+                <h1>Group C</h1>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+            </div>
+            <div id="machine4" class="slot-container">
+                <h1>Group D</h1>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+            </div>
+        </div>
+        <div id="control">
+            <button id="btnRun">Run</button>
+            <button id="btnStop">Stop</button>
+        </div>
+        <div id="footer">
+            <img src="img/kbri2.jpg" alt="" />
+            <img src="img/tutwuri.jpg" alt="" />
+            <img src="img/ascee_prchina.jpg" alt="" />
+            <img src="img/ascee_student.jpg" alt="" />
+            <img src="img/panda.jpg" alt="" />
+        </div>
+        <script src="./js/data.js" type="text/javascript"> </script>
+        <script src="./js/group_draw.js" type="text/javascript"> </script>
+    </body>
+</html>

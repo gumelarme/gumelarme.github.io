@@ -6,17 +6,29 @@
         <link rel="stylesheet" href="./css/score.css" type="text/css" media="screen" />
     </head>
     <body>
+        <div id="header">
+            <h1>
+                ASCEE Lomba Cerdas Cermat
+            </h1>
+        </div>
         <h1>SCORE</h1>
         <div id="score-wrapper">
         </div>
         <br />
         <div id="input-wrapper">
-            <input id="add-input" type="number" value="100" step="10"/>
-            <input id="sub-input" type="number" value="50" step="10"/>
+            <input id="add-input" type="number" value="3" step="10"/>
+            <input id="sub-input" type="number" value="3" step="10"/>
             <br />
             <br />
             <button id="reset-btn" onclick="resetScore()">Reset</button>
             <button id="edit-btn" onclick="btnEdit_Click()">Edit</button>
+        </div>
+        <div id="footer">
+            <img src="img/kbri2.jpg" alt="" />
+            <img src="img/tutwuri.jpg" alt="" />
+            <img src="img/ascee_prchina.jpg" alt="" />
+            <img src="img/ascee_student.jpg" alt="" />
+            <img src="img/panda.jpg" alt="" />
         </div>
         <div class="score-board hidden">
             <div>
@@ -32,6 +44,7 @@
                 <button class="sub-btn">▼</button>
             </div>
         </div>
+        <script type="text/javascript" src="./js/data.js"></script>
         <script type="text/javascript" src="./js/score.js"></script>
     </body>
 </html>

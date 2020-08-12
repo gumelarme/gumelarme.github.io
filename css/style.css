@@ -1,9 +1,29 @@
 *{
     font-family: sans-serif;
 }
+body, h1{
+    margin: 0;
+}
 
-h1{
-    color: green;
+
+#header{
+    font-family: sans-serif;
+    text-align: center;
+    background: #48A8DE;
+    padding: 20px;
+    color: white;
+}
+
+#footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clear: left;
+}
+
+#footer img{
+    width: 140px;
+    margin: 10px 10px;
 }
 
 #wrapper{
@@ -37,6 +57,7 @@ button{
 .result-slot {
     width: 45%;
     font-size: 2em;
+    font-weight: bold;
 }
 
 #slot1{
@@ -47,7 +68,7 @@ button{
 
 #slot2{
     text-align: left;
-    background: blue;
+    background: dodgerblue;
     color: white;
 }
 

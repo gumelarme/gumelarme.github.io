@@ -1,10 +1,37 @@
+
 *{
     font-family:sans-serif;
+}
+
+body{
+    margin: 0;
+    scrollbar-width: none;
+    overflow: hidden;
 }
 
 h1{
 
     text-align:center;
+}
+
+#header{
+    font-family: sans-serif;
+    text-align: center;
+    background: #48A8DE;
+    padding: 10px;
+    color: white;
+}
+
+#footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clear: left;
+}
+
+#footer img{
+    width: 140px;
+    margin: 10px 10px;
 }
 
 .score-name{
@@ -35,7 +62,7 @@ h1{
     display: flex;
     min-width: 200px;
     max-width: 350px;
-    background: wheat;
+    background: lightblue;
     padding: 30px 10px;
     text-align:center;
     margin: 10px;
@@ -75,17 +102,22 @@ button{
 }
 
 #input-wrapper>input{
-    font-size: 18px;
-    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 10px;
     text-align: center;
     margin: 5px;
+    width: 150px;
+    border: 1px solid transparent;
 }
 
 #add-input{
+    color: black;
     background: lightgreen;
 }
 
 #sub-input{
+    color: white;
     background: red;
 }
 

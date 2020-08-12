@@ -4,14 +4,14 @@ let _scoreBoard = document.querySelector(".score-board");
 let buffer = []
 let _isEdit = false;
 
-let contestant = [
-    { name: "AGUNG", score: 0 },
-    { name: "HERCULES", score: 0 },
-    { name: "A. HERCULES", score: 0 },
-    { name: "AGUNG H.", score: 0 },
-]
+// let contestant = [
+//     { name: "AGUNG", score: 0 },
+//     { name: "HERCULES", score: 0 },
+//     { name: "A. HERCULES", score: 0 },
+//     { name: "AGUNG H.", score: 0 },
+// ];
 
-
+contestant = contestant.map(x => ({name: x, score: 0}));
 
 contestant.forEach(function (item, index) {
     let sc = _scoreBoard.cloneNode(true);

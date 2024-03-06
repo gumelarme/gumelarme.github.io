@@ -37,4 +37,4 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  div [ class "font-bold text-sm" ] [ text model.message ]
+  div [ class "font-bold text-sm text-primary" ] [ text model.message ]
